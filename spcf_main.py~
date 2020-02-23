@@ -1,6 +1,0 @@
-import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow
-from gui_main import Ui_SPCF
-
-app = QApplication(sys.argv)
-window = 
