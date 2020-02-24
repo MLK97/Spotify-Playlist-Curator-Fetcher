@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>SPCF</class>
- <widget class="QMainWindow" name="SPCF">
+ <class>playlist_detail</class>
+ <widget class="QMainWindow" name="playlist_detail">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -57,16 +57,16 @@
       </widget>
      </item>
      <item>
-      <layout class="QVBoxLayout" name="verticalLayout">
+      <layout class="QVBoxLayout" name="detail_content">
        <item>
-        <widget class="QLabel" name="label">
+        <widget class="QLabel" name="title_label">
          <property name="text">
           <string>Title:</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QTextEdit" name="textEdit">
+        <widget class="QTextEdit" name="title_input">
          <property name="maximumSize">
           <size>
            <width>500</width>
@@ -76,14 +76,14 @@
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="label_2">
+        <widget class="QLabel" name="email_label">
          <property name="text">
           <string>E-Mail:</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QTextEdit" name="textEdit_2">
+        <widget class="QTextEdit" name="email_input">
          <property name="maximumSize">
           <size>
            <width>500</width>
@@ -93,14 +93,14 @@
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="label_3">
+        <widget class="QLabel" name="url_label">
          <property name="text">
           <string>URL:</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QTextEdit" name="textEdit_3">
+        <widget class="QTextEdit" name="url_input">
          <property name="maximumSize">
           <size>
            <width>500</width>
@@ -110,14 +110,14 @@
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="label_4">
+        <widget class="QLabel" name="desc_label">
          <property name="text">
           <string>Description:</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QTextEdit" name="textEdit_4">
+        <widget class="QTextEdit" name="desc_input">
          <property name="maximumSize">
           <size>
            <width>500</width>
