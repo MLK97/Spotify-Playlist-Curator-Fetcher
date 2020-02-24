@@ -39,9 +39,9 @@ class Ui_SPCF(object):
         self.search_button = QtWidgets.QPushButton(self.verticalLayoutWidget)
         self.search_button.setObjectName("search_button")
         self.main_functions.addWidget(self.search_button)
-        self.main_results = QtWidgets.QListView(self.verticalLayoutWidget)
-        self.main_results.setObjectName("main_results")
-        self.main_functions.addWidget(self.main_results)
+        self.listWidget = QtWidgets.QListWidget(self.verticalLayoutWidget)
+        self.listWidget.setObjectName("listWidget")
+        self.main_functions.addWidget(self.listWidget)
         SPCF.setCentralWidget(self.main_frame)
         self.statusbar = QtWidgets.QStatusBar(SPCF)
         self.statusbar.setObjectName("statusbar")
@@ -50,7 +50,6 @@ class Ui_SPCF(object):
         self.retranslateUi(SPCF)
         QtCore.QMetaObject.connectSlotsByName(SPCF)
         SPCF.setTabOrder(self.search_field, self.search_button)
-        SPCF.setTabOrder(self.search_button, self.main_results)
 
     def retranslateUi(self, SPCF):
         _translate = QtCore.QCoreApplication.translate

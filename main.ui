@@ -65,7 +65,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QListView" name="main_results"/>
+      <widget class="QListWidget" name="listWidget"/>
      </item>
     </layout>
    </widget>
@@ -75,7 +75,6 @@
  <tabstops>
   <tabstop>search_field</tabstop>
   <tabstop>search_button</tabstop>
-  <tabstop>main_results</tabstop>
  </tabstops>
  <resources/>
  <connections/>
