@@ -12,7 +12,7 @@ from spotipy.oauth2 import SpotifyClientCredentials
 
 __author__ = "Maximilian Konrad"
 __copyright__ = "Copyright 2020, SPCF-Project"
-__credits__ = ["Maximilian Konrad", "Rainer Endre"]
+__credits__ = ["Maximilian Konrad", "Rainer Endres"]
 __license__ = "GPL"
 __version__ = "0.0.1"
 __maintainer__ = "Maximilian Konrad"
