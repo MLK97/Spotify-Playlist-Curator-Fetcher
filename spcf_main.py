@@ -7,7 +7,8 @@ It connectes the Spotify Playlist Search Algorithm with the GUI
 """
 
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel
+from PyQt5 import QtGui
 from gui_main import Ui_SPCF
 from spotify_search import search
 
@@ -31,23 +32,47 @@ class MainWindow(QMainWindow):
         self.ui = Ui_SPCF()
         self.ui.setupUi(self)
 
-        # add search button_click
-        self.ui.search_button.clicked.connect(self.button_click)
+        # event handling
+        self.ui.search_button.clicked.connect(self.button_click) # start spotify_search when search_button clicked
+        self.ui.main_results.itemClicked.connect(self.on_element_click) # open pop-up when item of main_results clicked
 
         # add menubar
-        self.statusBar()
+        self.statusBar() # doesn't work yet
 
         # display gui
         self.show()
 
+        # set windowTitle and windowIcon
+        self.setWindowTitle("SPCF - Spotify Playlist Curator Fetcher")
+        app.setWindowIcon(QtGui.QIcon('spotify-logo.png'))
+
+
+    # adds result to QListWidget
+    def add_result(self, result):
+        try:
+            if(type(result) == str):
+                self.ui.main_results.addItem(result)
+            else:
+                for elem in result:
+                    self.ui.main_results.addItem(elem['title'])
+        except TypeError:
+            print("Error on line {}".format(sys.exc_info()))
+
+
+    # when element is QListWidget is clicked
+    def on_element_click(self):
+        w1 = QLabel("Pop-Up")
+        w1.show()
+
+
+    # when search_button is clicked
     def button_click(self):
         global result
+        self.ui.main_results.clear() # maybe add unique add instead
         shost = self.ui.search_field.text()
         result = search(shost.split(","))
-        print(result)
-        return result
+        self.add_result(result)
 
-    # def add_result(self): 
 
 
 app = QApplication(sys.argv)

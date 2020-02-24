@@ -49,7 +49,7 @@ def search(search):
                 if 'http' in playlist_desc or \
                    'submit' in playlist_desc or \
                    'curated' in playlist_desc and not playlist_desc:
-                    playlist_url = re.findall("https?://(?:[-\w.]|(?:%[\da-fA-F]{2}))+",
+                    playlist_url = re.findall(u"https?://(?:[-\w.]|(?:%[\da-fA-F]{2}))+",
                                               playlist_desc)
                     if playlist_url is None:
                         playlist_url = 'none'
@@ -61,6 +61,8 @@ def search(search):
                 }
                 if playlist_url != "none" or playlist_email != "none":
                     entries.append(entry)
-            except IndexError:
-                print("Error on line {}".format(sys.exc_info()[-1].tb_lineno))
+            except (IndexError, UnicodeEncodeError) as e:
+                print("Error on line {}".format(sys.exc_info()))
+                return "Sorry, I couldn't find any playlists that match your keywords"
+                break
         return entries
