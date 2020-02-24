@@ -35,6 +35,12 @@
      </property>
      <item>
       <widget class="QLabel" name="main_title">
+       <property name="maximumSize">
+        <size>
+         <width>500</width>
+         <height>40</height>
+        </size>
+       </property>
        <property name="font">
         <font>
          <pointsize>16</pointsize>
@@ -53,7 +59,7 @@
      <item>
       <widget class="QLineEdit" name="search_field">
        <property name="text">
-        <string>Keyword1, Keyword2, Keyword3</string>
+        <string/>
        </property>
       </widget>
      </item>
