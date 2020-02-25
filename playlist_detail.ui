@@ -73,6 +73,9 @@
            <height>40</height>
           </size>
          </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
         </widget>
        </item>
        <item>
@@ -89,6 +92,9 @@
            <width>500</width>
            <height>40</height>
           </size>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
          </property>
         </widget>
        </item>
@@ -107,6 +113,9 @@
            <height>40</height>
           </size>
          </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
         </widget>
        </item>
        <item>
@@ -123,6 +132,16 @@
            <width>500</width>
            <height>16777215</height>
           </size>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QCommandLinkButton" name="back_button">
+         <property name="text">
+          <string>Close</string>
          </property>
         </widget>
        </item>

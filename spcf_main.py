@@ -23,7 +23,7 @@ __email__ = "fysikbeats@hotmail.com"
 __status__ = "Development"
 
 
-class MainWindow(QMainWindow):
+class MainWindow(QMainWindow, Ui_SPCF):
     result = 'empty'
 
     def __init__(self):
@@ -35,8 +35,8 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
 
         # event handling
-        self.ui.search_button.clicked.connect(self.search_playlist)  # start spotify_search when search_button clicked
-        self.ui.main_results.itemClicked.connect(self.on_element_click)  # open pop-up when item of main_results clicked
+        self.ui.search_button.clicked.connect(self.search_playlist)
+        self.ui.main_results.itemClicked.connect(self.on_element_click)
 
         # add menubar
         self.statusBar()  # doesn't work yet
@@ -46,10 +46,9 @@ class MainWindow(QMainWindow):
 
         # set windowTitle and windowIcon
         self.setWindowTitle("SPCF - Spotify Playlist Curator Fetcher")
-        app.setWindowIcon(QtGui.QIcon('spotify-logo.png'))
 
 
-    # adds result to QListWidget
+    # Adds result to QListWidget
     def add_result(self, result):
         try:
             if(type(result) == str):
@@ -60,21 +59,19 @@ class MainWindow(QMainWindow):
         except TypeError:
             print("Error on line {}".format(sys.exc_info()))
 
-
-    # when element is QListWidget is clicked
+    # When element in QListWidget is clicked
     def on_element_click(self):
         global result
         global current_item
-        self.detail_ui = Ui_playlist_detail()
-        self.detail_ui.setupUi(self)
+        # self.detail_ui = Ui_playlist_detail()
+        # self.detail_ui.setupUi(self)
+        self.playlist_detail = PlaylistDetail()
+        # self.close()
         selected_item = self.ui.main_results.selectedItems()
         selected_item_title = selected_item[0].text()
-        for elem in result:
-            if elem['title'] == selected_item_title:
-                self.detail_ui.title_input.setText(str(elem['title']))
-                self.detail_ui.email_input.setText(elem['email'])
-                self.detail_ui.url_input.setText(str(elem['url']))
-                self.detail_ui.desc_input.setText(elem['description'])
+        self.playlist_detail.show()
+        self.playlist_detail.show_detail(selected_item_title)
+
 
 
     # when search_button is clicked
@@ -87,7 +84,48 @@ class MainWindow(QMainWindow):
         return result
 
 
+class PlaylistDetail(QMainWindow, Ui_playlist_detail):
+    def __init__(self, parent=None):
+        super(PlaylistDetail, self).__init__(parent)
+        self.setFixedSize(510, 700)
 
-app = QApplication(sys.argv)
-GUI = MainWindow()
-sys.exit(app.exec_())
+        # set up the interface for playlist_detail
+        self.detail_ui = Ui_playlist_detail()
+        self.detail_ui.setupUi(self)
+        self.show()
+        self.detail_ui.back_button.clicked.connect(self.hide)
+
+    def show_detail(self, selected_item_title):
+        for elem in result:
+            if elem['title'] == selected_item_title:
+                self.detail_ui.title_input.setText(str(elem['title']))
+                self.detail_ui.email_input.setText(elem['email'])
+                for item in elem['url']:
+                    self.detail_ui.url_input.setText(str(item))
+                self.detail_ui.desc_input.setText(elem['description'])
+
+
+class Controller:
+    def __init__(self):
+        pass
+
+    def show_main(self):
+        self.window = MainWindow()
+        self.window.show()
+
+    def show_playlist_detail(self):
+        self.playlist_detail = PlaylistDetail()
+        self.window.close()
+        self.playlist_detail.show()
+
+
+def main():
+    app = QApplication(sys.argv)
+    app.setWindowIcon(QtGui.QIcon('spotify-logo.png'))
+    controller = Controller()
+    controller.show_main()
+    sys.exit(app.exec_())
+
+
+if __name__ == '__main__':
+    main()
