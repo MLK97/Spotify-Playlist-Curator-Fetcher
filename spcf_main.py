@@ -88,7 +88,7 @@ class PlaylistDetail(QMainWindow, Ui_playlist_detail):
     def __init__(self, parent=None):
         super(PlaylistDetail, self).__init__(parent)
         self.setFixedSize(510, 700)
-        print("I executed")
+
         # set up the interface for playlist_detail
         self.detail_ui = Ui_playlist_detail()
         self.detail_ui.setupUi(self)
@@ -100,7 +100,8 @@ class PlaylistDetail(QMainWindow, Ui_playlist_detail):
             if elem['title'] == selected_item_title:
                 self.detail_ui.title_input.setText(str(elem['title']))
                 self.detail_ui.email_input.setText(elem['email'])
-                self.detail_ui.url_input.setText(str(elem['url']))
+                for item in elem['url']:
+                    self.detail_ui.url_input.setText(str(item))
                 self.detail_ui.desc_input.setText(elem['description'])
 
 
