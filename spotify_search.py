@@ -51,7 +51,10 @@ def search(search):
                    'curated' in playlist_desc and not playlist_desc:
                     playlist_url = re.findall(u"https?://(?:[-\w.]|(?:%[\da-fA-F]{2}))+",
                                               playlist_desc)
-                    if playlist_url is None:
+                    for item in playlist_url:
+                        if "spotify" in item:
+                            playlist_url.remove(item)
+                    if playlist_url is None or len(playlist_url) == 0:
                         playlist_url = 'none'
                 entry = {
                     "title": playlist_title,
@@ -61,7 +64,7 @@ def search(search):
                 }
                 if playlist_url != "none" or playlist_email != "none":
                     entries.append(entry)
-            except (IndexError, UnicodeEncodeError) as e:
+            except (IndexError, UnicodeEncodeError):
                 print("Error on line {}".format(sys.exc_info()))
                 return "Sorry, I couldn't find any playlists that match your keywords"
                 break
