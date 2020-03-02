@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background: #282828</string>
+  </property>
   <widget class="QWidget" name="main_frame">
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
@@ -31,7 +34,16 @@
       <enum>QLayout::SetDefaultConstraint</enum>
      </property>
      <property name="leftMargin">
-      <number>0</number>
+      <number>10</number>
+     </property>
+     <property name="topMargin">
+      <number>5</number>
+     </property>
+     <property name="rightMargin">
+      <number>10</number>
+     </property>
+     <property name="bottomMargin">
+      <number>5</number>
      </property>
      <item>
       <widget class="QLabel" name="main_title">
@@ -43,10 +55,15 @@
        </property>
        <property name="font">
         <font>
+         <family>Roboto Mono for Powerline</family>
          <pointsize>16</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:#ffffff;
+padding: 10px 10px 10px 10px</string>
        </property>
        <property name="text">
         <string>SPOTIFY PLAYLIST CURATOR FETCHER</string>
@@ -58,6 +75,18 @@
      </item>
      <item>
       <widget class="QLineEdit" name="search_field">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>45</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background:#FFFFFF;
+color: #000000;
+padding: 10px 10px 10px 10px;
+border-radius: 20px;</string>
+       </property>
        <property name="text">
         <string/>
        </property>
@@ -65,13 +94,39 @@
      </item>
      <item>
       <widget class="QPushButton" name="search_button">
+       <property name="minimumSize">
+        <size>
+         <width>10</width>
+         <height>45</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>500</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-radius: 20px;
+color: #ffffff;
+background-color: #1ab26b;
+padding: 10px 10px 10px 10px;
+</string>
+       </property>
        <property name="text">
         <string>Search...</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QListWidget" name="main_results"/>
+      <widget class="QListWidget" name="main_results">
+       <property name="styleSheet">
+        <string notr="true">background-color:#ffffff;
+padding: 10px 10px 10px;
+border-radius: 20px;
+margin-top: 4px</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>
