@@ -1,4 +1,6 @@
 # Spotify Playlist Curator Fetcher
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
 A small app to search for keywords and get a list of possible curators you can submit your music to.
 
 ## Requirements
@@ -6,7 +8,12 @@ A small app to search for keywords and get a list of possible curators you can s
 - PyQt 5
 - Spotipy
 
-## Install
+## Install and Run
+```bash
+git clone https://github.com/MLK97/Spotify-Playlist-Curator-Fetcher.git
+cd Spotify-Playlist-Curator-Fetcher
+python spcf_main.py
+```
 
 ## What and why
 To get your music out there and have people listening to it no longer depends on radio stations in this decade.
