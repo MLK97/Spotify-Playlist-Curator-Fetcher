@@ -40,6 +40,11 @@ class Ui_SPCF(object):
         self.main_functions.addWidget(self.main_title)
         self.search_field = QtWidgets.QLineEdit(self.verticalLayoutWidget)
         self.search_field.setMinimumSize(QtCore.QSize(0, 45))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.search_field.setFont(font)
         self.search_field.setStyleSheet("background:#FFFFFF;\n"
 "color: #000000;\n"
 "padding: 10px 10px 10px 10px;\n"
@@ -50,6 +55,10 @@ class Ui_SPCF(object):
         self.search_button = QtWidgets.QPushButton(self.verticalLayoutWidget)
         self.search_button.setMinimumSize(QtCore.QSize(10, 45))
         self.search_button.setMaximumSize(QtCore.QSize(500, 16777215))
+        font = QtGui.QFont()
+        font.setBold(True)
+        font.setWeight(75)
+        self.search_button.setFont(font)
         self.search_button.setStyleSheet("border-radius: 20px;\n"
 "color: #ffffff;\n"
 "background-color: #1ab26b;\n"
@@ -58,6 +67,11 @@ class Ui_SPCF(object):
         self.search_button.setObjectName("search_button")
         self.main_functions.addWidget(self.search_button)
         self.main_results = QtWidgets.QListWidget(self.verticalLayoutWidget)
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.main_results.setFont(font)
         self.main_results.setStyleSheet("background-color:#ffffff;\n"
 "padding: 10px 10px 10px;\n"
 "border-radius: 20px;\n"

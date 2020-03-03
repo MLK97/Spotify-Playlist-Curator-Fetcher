@@ -81,6 +81,13 @@ padding: 10px 10px 10px 10px</string>
          <height>45</height>
         </size>
        </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="styleSheet">
         <string notr="true">background:#FFFFFF;
 color: #000000;
@@ -106,6 +113,12 @@ border-radius: 20px;</string>
          <height>16777215</height>
         </size>
        </property>
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="styleSheet">
         <string notr="true">border-radius: 20px;
 color: #ffffff;
@@ -120,6 +133,13 @@ padding: 10px 10px 10px 10px;
      </item>
      <item>
       <widget class="QListWidget" name="main_results">
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="styleSheet">
         <string notr="true">background-color:#ffffff;
 padding: 10px 10px 10px;
