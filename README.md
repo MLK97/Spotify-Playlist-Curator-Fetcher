@@ -2,7 +2,7 @@
 A small app to search for keywords and get a list of possible curators you can submit your music to.
 
 ## Requirements
-- Python 3
+- Python 3 and Pip
 - PyQt 5
 - Spotipy
 
