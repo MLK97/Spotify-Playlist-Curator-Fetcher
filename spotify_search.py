@@ -34,7 +34,6 @@ def search(search):
 
     # Find and filter Results
     for element in search:
-        
         result = sp.search(element, limit=50, type='playlist')
         for n in range(50):
             try:
