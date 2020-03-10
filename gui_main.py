@@ -14,7 +14,13 @@ class Ui_SPCF(object):
     def setupUi(self, SPCF):
         SPCF.setObjectName("SPCF")
         SPCF.resize(500, 700)
-        SPCF.setStyleSheet("background: #282828")
+        font = QtGui.QFont()
+        font.setBold(True)
+        font.setWeight(75)
+        SPCF.setFont(font)
+        SPCF.setStyleSheet("background: #282828;\n"
+"color: #000000;\n"
+"")
         self.main_frame = QtWidgets.QWidget(SPCF)
         self.main_frame.setObjectName("main_frame")
         self.verticalLayoutWidget = QtWidgets.QWidget(self.main_frame)

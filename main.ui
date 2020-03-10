@@ -14,7 +14,9 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background: #282828</string>
+   <string notr="true">background: #282828;
+color: #000000;
+</string>
   </property>
   <widget class="QWidget" name="main_frame">
    <widget class="QWidget" name="verticalLayoutWidget">
