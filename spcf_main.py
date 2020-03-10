@@ -7,8 +7,9 @@ It connectes the Spotify Playlist Search Algorithm with the GUI
 """
 
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5.QtWidgets import QAction, QApplication, QMainWindow, qApp
 from PyQt5 import QtGui
+from PyQt5.QtGui import QIcon
 from gui_main import Ui_SPCF
 from gui_playlist_detail import Ui_playlist_detail
 from spotify_search import search
@@ -39,7 +40,19 @@ class MainWindow(QMainWindow, Ui_SPCF):
         self.ui.main_results.itemClicked.connect(self.on_element_click)
 
         # add menubar
-        self.statusBar()  # doesn't work yet
+        self.statusBar()
+
+        menubar = self.menuBar()
+        fileMenu = menubar.addMenu('&Configure')
+        fileMenu.triggered.connect(self.open_config)
+
+        menubar.setStyleSheet("color:#ffffff")
+        font_menu = QtGui.QFont()
+        font_menu.setPointSize(10)
+        font_menu.setBold(True)
+        font_menu.setWeight(75)
+        menubar.setFont(font_menu)
+
 
         # display gui
         self.show()
@@ -49,6 +62,7 @@ class MainWindow(QMainWindow, Ui_SPCF):
 
 
     # Adds result to QListWidget
+
     def add_result(self, result):
         try:
             if(type(result) == str):
@@ -82,6 +96,9 @@ class MainWindow(QMainWindow, Ui_SPCF):
         result = search(shost.split(","))
         self.add_result(result)
         return result
+
+    def open_config(self):
+        print("Hello World")
 
 
 class PlaylistDetail(QMainWindow, Ui_playlist_detail):
