@@ -7,6 +7,7 @@ A small app to search for keywords and get a list of possible curators you can s
 - Python 3 and Pip
 - PyQt 5
 - Spotipy
+- Spotify API secret and identity
 
 ## Install and Run
 
