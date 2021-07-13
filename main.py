@@ -7,8 +7,8 @@ search_list = ['Piano', 'Keyboard', 'Grand Piano', 'Sleep', 'Ambient']
 
 def search(search):
     # Looking for Keywords
-    identiy = # fill in identity
-    secret = # fill in secret
+    # identiy = None
+    # secret = None
 
     # Accessing Spotify-API
     sp = spotipy.Spotify(client_credentials_manager=SpotifyClientCredentials(
