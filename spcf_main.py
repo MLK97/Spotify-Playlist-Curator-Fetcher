@@ -31,15 +31,21 @@ class MainWindow(QMainWindow, Ui_SPCF):
         super(MainWindow, self).__init__()
         self.setFixedSize(510, 700)
 
-        # set up the interface from desinger
+        # Set up UI from pyQT Designer
         self.ui = Ui_SPCF()
         self.ui.setupUi(self)
 
-        # event handling
+        """
+        Event Handling for Button Clicks
+        search_button: Search with given keyword
+        main_results: onClick inside the results window on item
+        """
         self.ui.search_button.clicked.connect(self.search_playlist)
         self.ui.main_results.itemClicked.connect(self.on_element_click)
 
-        # add menubar
+        """
+        Add menuBar for possible extension such as Configure menu
+        """
         self.statusBar()
 
         menubar = self.menuBar()
@@ -54,15 +60,14 @@ class MainWindow(QMainWindow, Ui_SPCF):
         menubar.setFont(font_menu)
 
 
-        # display gui
+        """ Overall Display for GUI """
         self.show()
 
-        # set windowTitle and windowIcon
+        """ Set windowTitle and windowIcon """
         self.setWindowTitle("SPCF - Spotify Playlist Curator Fetcher")
 
 
-    # Adds result to QListWidget
-
+    """ Adds found results to QListWidget Item"""
     def add_result(self, result):
         try:
             if(type(result) == str):
@@ -73,7 +78,7 @@ class MainWindow(QMainWindow, Ui_SPCF):
         except TypeError:
             print("Error on line {}".format(sys.exc_info()))
 
-    # When element in QListWidget is clicked
+    """ Trigger for when elemen in QListWidget is clicked """
     def on_element_click(self):
         global result
         global current_item
@@ -88,17 +93,20 @@ class MainWindow(QMainWindow, Ui_SPCF):
 
 
 
-    # when search_button is clicked
+    """ Trigger for when search Button is clicked """ 
     def search_playlist(self):
         global result
-        self.ui.main_results.clear()  # maybe add unique add instead
+        self.ui.main_results.clear()
         shost = self.ui.search_field.text()
         result = search(shost.split(","))
         self.add_result(result)
         return result
 
     def open_config(self):
-        print("Hello World")
+        """
+        Placeholder for method onClick Configure 
+        """
+        return 0
 
 
 class PlaylistDetail(QMainWindow, Ui_playlist_detail):
@@ -116,7 +124,7 @@ class PlaylistDetail(QMainWindow, Ui_playlist_detail):
         for elem in result:
             if elem['title'] == selected_item_title:
                 self.detail_ui.title_input.setText(str(elem['title']))
-                self.detail_ui.email_input.setText(elem['email'])
+                self.detail_ui.email_input.setText(elem['email'][0])
                 for item in elem['url']:
                     self.detail_ui.url_input.setText(str(item))
                 self.detail_ui.desc_input.setText(elem['description'])
