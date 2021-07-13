@@ -11,10 +11,26 @@ A small app to search for keywords and get a list of possible curators you can s
 
 ## Install and Run
 
-You have to get a Spotify Identity and Secret first and put it manually into main.py before using this program.
+First clone the git repository
 ```bash
 git clone https://github.com/MLK97/Spotify-Playlist-Curator-Fetcher.git
 cd Spotify-Playlist-Curator-Fetcher
+```
+
+This version is currently without an option to configure the necessary API key and API secret through a GUI.
+Therefore this needs to be set manually by you inside the `spotify_search.py`.
+You can get these by going to [Spotify Developer](https://developer.spotify.com/dashboard/), logging in and click on `Create an App`.
+
+After having created an app you will get to a page, containing the API key and API secret.
+Copy these and put them into the `spotify_search.py` file and put it in line 27 and 28 of the code for example
+```python
+identity = '123a456789bc8d76e54321fgh12ijk34i'
+secret = '123a456789bc8d76e54321fgh12ijk34i'
+```
+
+Then run the project file
+
+```bash
 python spcf_main.py
 ```
 
