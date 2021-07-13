@@ -1,0 +1,46 @@
+$black: #191414
+$green: #1db954
+$gray: #2D2424
+
+@import url('https://fonts.googleapis.com/css2?family=Signika:wght@300;500&display=swap');
+
+body
+    background-color: $black
+    color: white
+    text-align: center
+    font-family: 'Signika', sans-serif;
+
+form
+    width: 90%
+    background-color: $black
+    border-bottom: 1px solid white
+    padding-bottom: 10px
+    display: inline-block
+
+    &:focus
+        outline: none
+
+.search_text
+    border: none
+    width: 88%
+    background-color: $black
+    color: white
+    height: 40px
+    border-radius: 3px
+    transition: 0.3s
+    
+    &:focus
+        outline: none
+        background-color: $gray
+
+
+.search_button
+    background-color: $green
+    border-radius: 25px
+    color: white
+    border: none
+    padding: 0 20px
+    letter-spacing: 0.1em
+    text-align: center
+    height: 40px
+    width: 10%
