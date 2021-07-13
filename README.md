@@ -7,8 +7,11 @@ A small app to search for keywords and get a list of possible curators you can s
 - Python 3 and Pip
 - PyQt 5
 - Spotipy
+- Spotify API secret and identity
 
 ## Install and Run
+
+You have to get a Spotify Identity and Secret first and put it manually into main.py before using this program.
 ```bash
 git clone https://github.com/MLK97/Spotify-Playlist-Curator-Fetcher.git
 cd Spotify-Playlist-Curator-Fetcher
