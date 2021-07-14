@@ -35,7 +35,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-$black: #191414;
+$black: #121212;
 $green: #1db954;
 $gray: #2D2424;
 
